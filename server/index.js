@@ -1,7 +1,7 @@
 const express = require('express'),
     cors = require('cors'),
     bodyparser = require('body-parser'),
-   // massive = require('massive'),
+    massive = require('massive'),
     axios = require('axios'),
     controller = require('./controller')
 require('dotenv').config();
@@ -11,11 +11,11 @@ require('dotenv').config();
 const app = express();
 
 
-/*massive(process.env.CONNECTION_STRING)
+massive(process.env.CONNECTION_STRING)
     .then(dbinstance => {
     app.set('db', dbinstance)
     console.log(`DB is Running`)
-    }).catch( err=>console.log(err));*/
+    }).catch( err=>console.log(err));
 
 
 app.use(cors());
