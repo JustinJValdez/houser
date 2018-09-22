@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Dashboard extends Component {
-    render(){
-        return(
-            <div>DASHBOARD</div>
+    /*constructor(props){
+        super(props)
+        this.state={
+    
+    
+        }*/
+
+
+
+    render() {
+        return (
+            <div>
+                <h1>DASHBOARD</h1>
+                <Link to={'/wizard'}>
+                    <button>
+                        Add New Property
+            </button>
+                </Link>
+            </div>
         )
     }
 }
