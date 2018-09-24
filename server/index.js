@@ -21,11 +21,10 @@ massive(process.env.CONNECTION_STRING)
 app.use(cors());
 app.use(bodyparser.json());
 
-//endpoint=''
-//CB function that acts as DB, db.PR.find = .then() gets inven.. from products_table and res.send it back to front end
-/*app.get(`/api/inventory`, controller.getProductsTable)
 
-app.post(`/api/product`, controller.postProductsTable)*/
+app.get(`/api/list`, controller.getHouses)
+
+/*app.post(`/api/product`, controller.postProductsTable)*/
 
 
 const port = process.env.SERVER_PORT || 9000

@@ -4,7 +4,10 @@ import React from 'react';
 function House(props) {
     return (
         <div>
-           House
+            House
+           <button>
+                Delete
+           </button>
         </div>
     )
 }
