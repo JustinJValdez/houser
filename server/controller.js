@@ -9,8 +9,8 @@ getHouses: (req,res,next)=>{
 
 postHouses:(req,res,next)=>{
     const dbinstance = req.app.get('db');
-    const { name, address, city, state, zip}=req.body;
-    dbinstance.create_house([name, address, city, state, zip])
+    const { houseName, address, city, state, zip}=req.body;
+    dbinstance.create_house([houseName, address, city, state, zip])
     dbinstance.get_list().then(result => {
         res.send(result)
     });

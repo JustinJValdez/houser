@@ -6,15 +6,14 @@ class Wizard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: "",
+            houseName: "",
             address: "",
             city: "",
             state: "",
-            zip: 0,
-            list: []
-
+            zip: 0
         };
         this.handleChange = this.handleChange.bind(this)
+        this.post=this.post.bind(this)
     }
     handleChange = (e) => {
         this.setState({
@@ -25,11 +24,11 @@ class Wizard extends Component {
 
     post() {
         axios.post(`/api/list`, {
-            name: this.state.name,
+            houseName: this.state.houseName,
             address: this.state.address,
             city: this.state.city,
             state: this.state.state,
-            zip: this.state.zip,
+            zip: this.state.zip
         })
             .then(res => {
                 console.log(res);
@@ -46,7 +45,7 @@ class Wizard extends Component {
                 <h1>Wizard</h1>
                 <form>
                     <label>Property Name
-                <input value={this.state.name} onChange={this.handleChange} type="text" name="name" />
+                <input value={this.state.houseName} onChange={this.handleChange} type="text" name="houseName" />
                     </label>
                     <br />
                     <label> Address
@@ -67,7 +66,7 @@ class Wizard extends Component {
                     <button /*on click={}*/>
                         Cancel
                     </button>  
-                    <button>
+                    <button onClick={this.post}>
                         Complete
                     </button>          
                 </Link>

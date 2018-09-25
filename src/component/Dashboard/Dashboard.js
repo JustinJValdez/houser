@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import House from "../House/House";
-import Wizard from "../Wizard/Wizard";
+
 
 
 class Dashboard extends Component {
@@ -13,10 +13,8 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
-      debugger
-        axios.get("/api/list")
-        .then((res) => {
-            debugger    
+        axios.get(`/api/list`)
+            .then((res) => {
                 this.setState({
                     list: res.data
                 })
@@ -27,19 +25,18 @@ class Dashboard extends Component {
 
     render() {
         const newHouse = this.state.list.map((e) => {
-
-            <House
-                newHouse={e}
-            />
-
+            return (
+                <House
+                    newHouse={e}
+                />
+            )
         })
 
 
         return (
-            /*add list=this.state.list??*/
-            <div> 
-                <h1>DASHBOARD</h1>
-            
+            <div>
+                <h1>DASHBOARD </h1>
+
                 <Link to={'/wizard'}>
                     <button>
                         Add New Property
