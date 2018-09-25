@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 class Wizard extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Wizard extends Component {
             city: "",
             state: "",
             zip: 0,
+            list: []
 
         };
         this.handleChange = this.handleChange.bind(this)
@@ -20,6 +22,24 @@ class Wizard extends Component {
         });
 
     }
+
+    post() {
+        axios.post(`/api/list`, {
+            name: this.state.name,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip,
+        })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+
+            });
+
+
+    }
+
     render() {
         return (
             <div>
@@ -28,26 +48,30 @@ class Wizard extends Component {
                     <label>Property Name
                 <input value={this.state.name} onChange={this.handleChange} type="text" name="name" />
                     </label>
-                <br />
-                <label> Address
+                    <br />
+                    <label> Address
                 <input value={this.state.address} onChange={this.handleChange} type="text" name="address" />
-                </label>
-                <br/>
-                <label>City
+                    </label>
+                    <br />
+                    <label>City
                 <input value={this.state.city} onChange={this.handleChange} type="text" name="city" />
-                </label>
-                <label>State
+                    </label>
+                    <label>State
                 <input value={this.state.state} onChange={this.handleChange} type="text" name="state" />
-                </label>
-                <label>Zip
+                    </label>
+                    <label>Zip
                 <input value={this.state.zip} onChange={this.handleChange} type="text" name="zip" />
-                </label>
-                 </form>
+                    </label>
+                </form>
                 <Link to={'/'}>
                     <button /*on click={}*/>
                         Cancel
-                    </button>
+                    </button>  
+                    <button>
+                        Complete
+                    </button>          
                 </Link>
+                
             </div>
         )
     }

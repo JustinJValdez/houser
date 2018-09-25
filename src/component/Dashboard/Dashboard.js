@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
+import House from "../House/House";
+import Wizard from "../Wizard/Wizard";
 
 
 class Dashboard extends Component {
@@ -7,32 +10,36 @@ class Dashboard extends Component {
         super(props)
         this.state = {
             list: []
-
         }
-    };
-
+    }
     componentDidMount() {
+      debugger
         axios.get("/api/list")
-            .then((res) => {
+        .then((res) => {
+            debugger    
                 this.setState({
                     list: res.data
                 })
-            })
+            }
+            )
     }
 
 
     render() {
-        /*let house= this.state.list.map((house)=>{
-            return (
-                <House
-                
-                />
+        const newHouse = this.state.list.map((e) => {
 
-            )
-*/
+            <House
+                newHouse={e}
+            />
+
+        })
+
+
         return (
-            <div>
+            /*add list=this.state.list??*/
+            <div> 
                 <h1>DASHBOARD</h1>
+            
                 <Link to={'/wizard'}>
                     <button>
                         Add New Property
@@ -42,6 +49,7 @@ class Dashboard extends Component {
         )
     }
 }
+
 
 
 export default Dashboard;

@@ -12,19 +12,8 @@ class App extends Component {
       <div className="App">
         <div className="Header">
           <Header />
-          <div />
-
-          <br />
-
-          <div className="Dashboard">
-          
           </div>
-
           <br />
-          <div>
-
-          </div>
-        </div>
         {route}
       </div>
     );

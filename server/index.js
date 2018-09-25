@@ -21,10 +21,11 @@ massive(process.env.CONNECTION_STRING)
 app.use(cors());
 app.use(bodyparser.json());
 
+console.log(controller);
 
 app.get(`/api/list`, controller.getHouses)
 
-/*app.post(`/api/product`, controller.postProductsTable)*/
+app.post(`/api/list`, controller.postHouses)
 
 
 const port = process.env.SERVER_PORT || 9000
