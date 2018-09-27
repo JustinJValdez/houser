@@ -1,0 +1,26 @@
+.Dash{
+    background-color: #E5f4Ec;
+      height: 100%;
+     vertical-align: middle;
+     width: 600px;
+     position: fixed;
+     left:33vw;
+     right:33vw;
+     
+ }
+ .Property{
+     background-color: #8AEA92;
+     margin:20px;
+     border: none;
+     text-align: center;
+     font-size: 20px;
+     position: relative;
+     top:10px;
+     left: 360px;
+     padding:10px;
+     font-weight: 700;
+ }
+ .Dashboard{
+     color: black;
+     font-size: 40px;
+ }

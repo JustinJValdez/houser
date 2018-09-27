@@ -9,12 +9,11 @@ import route from './route';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="Header">
+      <div>
           <Header />
-          </div>
-          <br />
-        {route}
+          <body>
+          {route}
+          </body>
       </div>
     );
   }
